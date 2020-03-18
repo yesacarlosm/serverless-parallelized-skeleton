@@ -1,0 +1,18 @@
+service: valence-aws-javascript-takehome
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment:
+    S3_CSV_URL: https://s3-us-west-2.amazonaws.com/valenceinterview/locations.csv
+    METAWEATHER_BASE_URL: https://www.metaweather.com/api/
+
+functions:
+  myFunction:
+    handler: handler.endpoint
+    events:
+      - http:
+          path: ping
+method: get
